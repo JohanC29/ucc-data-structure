@@ -1,7 +1,4 @@
-# Hello VuePress
-
-<!-- <App/> -->
-
+# Temario Estructuras de Datos
 
 ## 1. Identificar estructuras de datos con apuntadores y sin apuntadores
 

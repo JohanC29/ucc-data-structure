@@ -20,7 +20,3 @@
   };
   </script>
   
-  <style scoped>
-  /* Estilos específicos del componente Foto */
-  </style>
-  
