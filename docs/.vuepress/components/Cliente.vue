@@ -1,7 +1,7 @@
 <!-- Cliente.vue -->
 <template>
     <div>
-      <h2>Cliente</h2>
+      <h3>Cliente</h3>
       <p>Cédula: {{ cedula }}</p>
       <p>Nombre: {{ nombre }}</p>
     </div>

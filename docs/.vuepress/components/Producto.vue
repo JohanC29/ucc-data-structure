@@ -1,7 +1,7 @@
 <!-- Producto.vue -->
 <template>
     <div>
-      <h3>Producto</h3>
+      <h4>Producto</h4>
       <p>Número: {{ producto.numero }}</p>
     </div>
   </template>

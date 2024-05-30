@@ -1,23 +1,15 @@
 <template>
   <div id="app">
-
     <div class="json-editor">
-    <textarea
-      v-model="jsonContent"
-      @input="updateJson"
-      class="json-editor__textarea"
-      placeholder="Ingrese su JSON aquí..."
-    ></textarea>
-    <pre class="json-editor__preview">{{ formattedJson }}</pre>
-  </div>
-
-    <h1>Gestión de Pedidos</h1>
-    <Pedido
-      :cliente="cliente"
-      :productos="productos"
-      :fecha="fecha"
-      :numeroTarjetaCredito="numeroTarjetaCredito"
-    />
+      <textarea
+        v-model="jsonContent"
+        @input="updateJson"
+        class="json-editor__textarea"
+        placeholder="Ingrese su JSON aquí..."
+      ></textarea>
+      <pre class="json-editor__preview">{{ formattedJson }}</pre>
+    </div>
+    <p>Número de Tarjeta de Crédito: </p>
     <input
       type="number"
       class="form-control"
@@ -27,6 +19,14 @@
       v-model="numeroTarjetaCredito"
       @keyup.enter="focusInputProxySize()"
       ref="inputnumeroTarjetaCredito"
+    />
+    
+    <h1>Gestión de Pedidos</h1>
+    <Pedido
+      :cliente="cliente"
+      :productos="productos"
+      :fecha="fecha"
+      :numeroTarjetaCredito="numeroTarjetaCredito"
     />
   </div>
 </template>
@@ -48,21 +48,28 @@ export default {
       productos: [],
       fecha: "2024-05-28",
       numeroTarjetaCredito: 1234567890123456,
-      jsonContent :'[{ "numero": 1, "marca": "Canon", "modelo": "EOS 5D" },{"numero": 2, "color": "Color","fotos": [{ "fichero": "foto1.jpg" }, { "fichero": "foto2.jpg" }]}]',
-      formattedJson :'',
+      jsonContent:
+        '[{ "numero": 1, "marca": "Canon", "modelo": "EOS 5D" },{"numero": 2, "color": "Color","fotos": [{ "fichero": "foto1.jpg" }, { "fichero": "foto2.jpg" }]}]',
+      formattedJson: "",
     };
   },
   methods: {
     focusInputDeveloperHours() {},
     updateJson(event) {
-      
       try {
-        this.formattedJson = JSON.stringify(JSON.parse(this.jsonContent), null, 2);
-        this.productos=JSON.parse(this.jsonContent)
+        this.formattedJson = JSON.stringify(
+          JSON.parse(this.jsonContent),
+          null,
+          2
+        );
+        this.productos = JSON.parse(this.jsonContent);
       } catch (error) {
-        this.formattedJson = 'Error: JSON inválido';
+        this.formattedJson = "Error: JSON inválido";
       }
     },
+  },
+  mounted() {
+    this.updateJson();
   },
 };
 </script>

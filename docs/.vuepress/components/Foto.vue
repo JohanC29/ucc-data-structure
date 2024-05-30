@@ -14,7 +14,7 @@
     },
     methods: {
       printFoto() {
-        console.log(`Printing ${this.foto.fichero}`);
+        alert(`Printing ${this.foto.fichero}`)
       }
     },
   };
